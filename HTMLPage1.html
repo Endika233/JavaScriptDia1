@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>PruebaJavaScriptContador</title>
+</head>
+<body>
+    <!--<h1>hdsgfjg</h1>-->
+    <script>
+        let eleccion, cont, numero,numeroCarta;
+        cont = parseInt(0);
+        numero = parseInt(numero);/*Aqui estoy fijandole el tipo de dato a int, se puede hacer antes o despues pero asi te quedara mas claro. Al hacer prompt cambia a string*/
+        do {
+            if (cont > 0) {
+                alert("Debe introducir un número");
+            }
+            numero = parseInt(prompt("\tIntroduza un número"));
+            cont++;
+
+        } while (isNaN(numero))
+        cont = 0;
+        do
+        {
+            if (cont > 0) {
+                alert("Debe introducir un número entre el 1 y el 6");
+            }
+            eleccion = parseInt(prompt("\tIntroduza 1 para contar normalmente.\n\tIntroduzca 2 para contar como un ingeniero de la NASA\n\tIntroduzca 3 para contar como un universitario\n\tIntroduzca 4 para contar como Barrio Sesamo\n\tIntroduzca 5 para contar como un cartero\n\tIntroduzca 6 para salir"));
+            cont++;
+
+        } while (isNaN(eleccion)||eleccion<1||eleccion>6);
+        switch (eleccion) {
+            case 1:
+                Normal(numero);
+                break;
+            case 2:
+                Nasa(numero);
+                break;
+            case 3:
+                Universitario(numero);
+                break;
+            case 4:
+                BarrioSesamo(numero);
+                break;
+            case 5:
+                Cartero(numero);
+                break;
+            case 6:
+                Salir();
+                break;
+        }
+        function Normal(numero){
+            for (var i = 1; i <=numero; i++) {
+                alert(i);
+            }
+        }
+        function Nasa(numero) {
+            for (var i = numero; i >=0; i--) {
+                alert(i);
+            }
+            alert("¡¡¡¡¡¡¡IGNICIÓN!!!!!!!");
+        }
+        function Universitario(numero) {
+            for (var i = 1; i <= numero; i++) {
+                numeroCarta = i % 12;
+                if (numeroCarta == 1) {
+                    alert("As");
+                }
+                else if (numeroCarta == 10) {
+                    alert("Sota");
+                }
+                else if (numeroCarta == 11) {
+                    alert("Caballo");
+                }
+                else if (numeroCarta == 0) {
+                    alert("Rey");
+                }
+                else {
+                    alert(numeroCarta);
+                }
+            }          
+        }
+        function BarrioSesamo(numero){
+            for (var i = 1; i <= numero; i++) {
+                alert("¡¡¡¡¡¡¡"+i+"!!!!!!!");
+            }
+        }
+        function Cartero(numero) {
+            for (var i = 1; i <= numero; i++) {
+                if (i % 2 == 1) {
+                    alert(i);
+                }
+            }
+            for (var i = 1; i <= numero; i++) {
+                if (i % 2 == 0) {
+                    alert(i);
+                }
+            }
+        }
+        function Salir() {
+            alert("Adios Muchachote");
+        }
+    </script>
+</body>
+</html>
